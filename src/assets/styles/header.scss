@@ -1,0 +1,92 @@
+
+.header {
+  
+  border-bottom: 1px solid rgb(170, 170, 170);
+
+  .app-logo-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .app-title {
+    margin-left: 20px;
+    font-size: 34px;
+  }
+    
+  .connect-button {
+    background-color: white !important;
+    border-color: gray;
+    color: black;
+  }
+  
+  .connect-button:hover {
+    color: black !important;
+  }
+  .connect-button:focus {
+    color: black !important;
+  }
+  
+}
+  
+
+.connect-modal {
+
+  .wallet-icon {
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+  }
+  
+  .wallet-button {
+    width: 100%;
+    min-height: 70px;
+    margin-top: 10px;
+    background-color: white !important;
+    color: black !important;
+    text-align: left !important;
+    border-color: gray !important;
+  }
+  
+  .wallet-button:hover {
+    background-color: gray !important;
+  }
+  
+  .wallet-warning {
+    padding: 20px 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .warning-icon {
+    margin-right: 10px;
+  }
+  
+  .error-msg {
+    color: red;
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+}
+
+.header-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.network-button {
+  padding: 5px 10px;
+  margin-right: 20px;
+  background-color: rgb(241, 241, 241);
+  border: none;
+  border-radius: 20px;
+  color: rgb(0, 89, 95);
+}
+
+.network-button:hover {
+  color: black;
+  background-color: rgb(223, 221, 221);
+}

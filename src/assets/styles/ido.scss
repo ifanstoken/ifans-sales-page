@@ -1,0 +1,175 @@
+h1 {
+  font-size: 2.3rem;
+  @media (max-width: 1200px) {
+    font-size: 1.8rem;
+  }
+}
+
+.bg_ido {
+  height: 100%;
+}
+
+.input_bg_gray {
+  font-size: 1.5em;
+  background-color: #3d3b51;
+  &:focus {
+    background-color: #3d3b51;
+  }
+  &:disabled {
+    background-color: #3d3b51;
+    color: #222222 !important;
+  }
+}
+
+.main_layout {
+  background-color: #141132;
+  min-height: 100vh;
+}
+
+.btn_white {
+  color: #141132;
+  background-color: white;
+  border: #838383 solid 1px;
+  border-radius: 7px;
+  font-weight: 700;
+}
+
+.btn_white:hover {
+  border: #838383 solid 1px;
+  background-color: rgb(223, 223, 223);
+
+}
+
+.app_secondery {
+  background-color: #211d40;
+}
+
+.app_secondery-70 {
+  background-color: rgba(20, 17, 50, 0.8);
+}
+
+.pre_block {
+  .app_secondery-70 {
+    padding-bottom: 200px;
+    border-radius: 0 0 15px 15px;
+    @media (max-width: 767.98px) {
+      padding-bottom: 100px;
+    }
+  }
+}
+
+.counter_block {
+  height: 0;
+  color: #141132;
+  width: fit-content;
+  .counter_white {
+    border-radius: 20px;
+    .text_large {
+      font-size: 4.5rem;
+      @media (max-width: 768px) {
+        font-size: 1.5rem;
+      }
+    }
+  }
+  transform: translate(-0%, -230px);
+  @media (max-width: 767.98px) {
+    transform: translate(-0%, -150px);
+  }
+}
+
+.border_radius {
+  border-radius: 15px;
+}
+
+.bg_gray {
+  background-color: #3d3b51;
+}
+
+.w-fill-available {
+  width: -webkit-fill-available;
+}
+
+.w-fit-content {
+  width: fit-content;
+}
+
+.error-msg {
+  text-align: center;
+  color: red;
+  padding: 20px 0;
+}
+
+.pb-0 {
+  padding-bottom: 0px !important;
+}
+
+.ido-loading-bg {
+  min-height: calc(100vh - 100px);
+  display: flex;
+}
+
+.ido-loading {
+  margin: auto;
+  padding: 20px 50px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.loading-text {
+  margin-top: 10px;
+  color: #25224e;
+  font-size: 20px;
+}
+
+.attention-desc {
+  color: #4b4b4b;
+  font-size: 1.2rem;
+  font-weight: normal;
+  line-height: 1.5rem;
+}
+
+.price-title {
+  color: #636363;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.account-loading {
+  text-align: center;
+  margin: auto;
+}
+
+.flex-div {
+  display: flex;
+}
+
+.err-msg {
+  color: #e22828;
+  text-align: right;
+  width: 100%;
+}
+
+.rel-div {
+  position: relative;
+}
+
+.discount-img {
+  position: absolute;
+  top: 0;
+  right: calc(50vw - 300px);
+  z-index: 999999;
+  width: 100px;
+}
+
+@media (max-width: 768px) {
+  .discount-img {
+    width: 70px;
+    right: calc(50vw - 240px);
+  }
+}
+
+.page-title {
+  font-size: 24px;
+}
