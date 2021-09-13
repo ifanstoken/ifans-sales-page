@@ -1,0 +1,144 @@
+body {
+  font-family: "Rifficfree-Bold", sans-serif;
+}
+.mainBG {
+    background-image: url(../assets/bg/bg1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.header_logo {
+  height: 100px;
+  @media only screen and (max-width: 960px) {
+    height: 80px;
+  }
+}
+
+.connectWalletBtn {
+  background: #64c3f4 !important;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 5px 5px #00547f, 10px 10px #00547f;
+  &:focus {
+    box-shadow: 5px 5px #00547f, 10px 10px #00547f;
+  }
+}
+
+.glass_bg,
+.glass_bg_res {
+  border-radius: 10px;
+  background-image: linear-gradient(to right, rgba(1,84,128, 0.5), rgba(112, 199, 66, 0.5));
+  backdrop-filter: saturate(180%) blur(3.5px);
+}
+.glass_bg{
+  box-shadow: 5px 10px rgba(0, 84, 127, 0.5);
+}
+.glass_bg_res{
+  box-shadow: -1px 1px 5px 9px rgba(0, 84, 127, 0.7);
+}
+
+.glass_bg_res {
+  @media only screen and (max-width: 960px) {
+    background-image: linear-gradient(to right, rgba(1,84,128, 0.5), rgba(112, 199, 66, 0.5));
+  }
+}
+
+.glass_bg_dark {
+  border-radius: 10px;
+  background-image: linear-gradient(to top, rgba(112, 199, 66, 0.5), rgba(1,84,128, 0.5));
+  backdrop-filter: saturate(180%) blur(3.5px);
+}
+
+.input_sec {
+  background-color: rgba($color: #00547f, $alpha: 0.7);
+  border-radius: 10px;
+  @media only screen and (max-width: 960px) {
+    background: rgba($color: #3a8eb8, $alpha: 0.8);
+  }
+}
+
+.btn_light {
+  background-color: #fefefe;
+  color: #00547f;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  border: none;
+}
+
+.conect_btn {
+  background-color: #00547f;
+  border-radius: 10px;
+  border: none;
+  border: 1px solid;
+}
+
+.bg_blur {
+  backdrop-filter: saturate(180%) blur(8px);
+}
+
+.border_radius {
+  border-radius: 10px;
+}
+
+.modal-content {
+  border-radius: 10px !important;
+  background-color: #00547f !important;
+}
+
+.count_bg {
+  background-color: rgba(85,127,150,.5);
+}
+
+.count_text {
+  font-weight: normal;
+  font-size: 4.5rem;
+  font-family: "Bebas Neue", cursive;
+}
+
+.notch_btn {
+  --notchSize: 15px;
+  clip-path: polygon(
+    0% 0%,
+    calc(100% - var(--notchSize)) 0%,
+    100% var(--notchSize),
+    100% 100%,
+    100% 100%,
+    var(--notchSize) 100%,
+    0% calc(100% - var(--notchSize)),
+    0% 0%
+  );
+
+  border-radius: 10px 20px;
+  background-color: #00547f;
+  border: none;
+  border: 1px solid;
+}
+
+.footer_icon {
+  height: 40px;
+  @media only screen and (max-width: 789px) {
+    height: 30px;
+  }
+}
+
+.progress_bar {
+  background-color: white;
+  border-radius: 25px;
+  padding: 5px;
+  .bar {
+    background-color: #ff7100;
+    border-radius: 25px;
+    height: 25px;
+  }
+}
+
+.footer_bg {
+  background-color: rgba(1, 84, 128, 0.6);
+}
+
+.contribution-btn:hover, .wallet-btn, .wallet-btn:hover, .conect_btn, .conect_btn:hover{
+  background: rgba(0, 84, 127, 0.7);
+}
