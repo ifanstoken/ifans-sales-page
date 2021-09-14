@@ -30,13 +30,15 @@ body {
   border-radius: 10px;
   background-image: linear-gradient(to right, rgba(1,84,128, 0.5), rgba(112, 199, 66, 0.5));
   backdrop-filter: saturate(180%) blur(3.5px);
+  box-shadow: 0 0 10px 6px rgba(0, 84, 127, 0.7);
 }
-.glass_bg{
-  box-shadow: 5px 10px rgba(0, 84, 127, 0.5);
-}
-.glass_bg_res{
-  box-shadow: -1px 1px 5px 9px rgba(0, 84, 127, 0.7);
-}
+// .glass_bg{
+//   box-shadow: 5px 10px 5px 5px rgba(0, 84, 127, 0.5);
+  
+// }
+// .glass_bg_res{
+//     box-shadow: 0 0 10px 8px rgba(0, 84, 127, 0.7);
+// }
 
 .glass_bg_res {
   @media only screen and (max-width: 960px) {
