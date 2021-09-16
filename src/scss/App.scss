@@ -4,6 +4,17 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
+
+@font-face {
+    font-family: 'Rifficfree-Bold';
+    src: url('../fonts/RIFFICFREE-BOLD.TTF') format('truetype');
+}
+
+@font-face {
+    font-family: 'Avertastd-Regular';
+    src: url('../fonts/AVERTASTD-REGULAR.TTF') format('truetype');
+}
+
 .font_avertastd_regular {
     font-family: 'Avertastd-Regular', sans-serif;
 }
