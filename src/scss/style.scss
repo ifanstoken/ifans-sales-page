@@ -1,5 +1,5 @@
 body {
-  font-family: "Rifficfree-Bold", sans-serif;
+  font-family: 'Avertastd-Regular', sans-serif;
 }
 .mainBG {
     background-image: url(../assets/bg/bg1.jpg);
@@ -91,12 +91,12 @@ body {
 }
 
 .count_bg {
-  background-color: rgba(85,127,150,.5);
+  background-color: rgba($color: #00547F, $alpha: 0.6);
 }
 
 .count_text {
   font-weight: normal;
-  font-size: 4.5rem;
+  // font-size: 5rem;
   font-family: "Bebas Neue", cursive;
 }
 

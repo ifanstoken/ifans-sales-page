@@ -45,13 +45,13 @@ class TimeCounter extends Component {
     return (
       <div className="d-flex justify-content-center text-white">
         <div className="text-center px-1 px-md-2">
-          <h1 className="count_text count_bg mb-3 mt-1 px-md-4 px-2">
+          <h1 className="count_text count_bg mb-3 mt-1 px-md-4 px-2 display-2 mb-0">
             {parseInt(this.state.duration?.asDays() ?? "00")}
           </h1>
           <span>DAYS</span>
         </div>
         <div className="text-center px-1 px-md-2">
-          <h1 className="count_text count_bg mt-1 mb-3 px-md-4 px-2">
+          <h1 className="count_text count_bg mt-1 mb-3 px-md-4 px-2 display-2 mb-0">
             {this.state.duration?.hours()
               ? this.digitSattle(this.state.duration?.hours())
               : "00"}
@@ -59,7 +59,7 @@ class TimeCounter extends Component {
           <span>HOURS</span>
         </div>
         <div className="text-center px-1 px-md-2">
-          <h1 className="count_text count_bg mt-1 mb-3 px-md-4 px-2">
+          <h1 className="count_text count_bg mt-1 mb-3 px-md-4 px-2 display-2 mb-0">
             {this.state.duration?.minutes()
               ? this.digitSattle(this.state.duration?.minutes())
               : "00"}
@@ -67,7 +67,7 @@ class TimeCounter extends Component {
           <span>MINUTES</span>
         </div>
         <div className="text-center px-1 px-md-2">
-          <h1 className="count_text count_bg mt-1 mb-3 px-md-4 px-2">
+          <h1 className="count_text count_bg mt-1 mb-3 px-md-4 px-2 display-2 mb-0">
             {this.state.duration?.seconds()
               ? this.digitSattle(this.state.duration?.seconds())
               : "00"}

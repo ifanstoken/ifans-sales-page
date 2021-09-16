@@ -48,7 +48,7 @@ const MainSection = (props) => {
                   <img src={Pig} alt="" height="180px" />
 
                   <div className="text-center px-lg-5">
-                    <h1 className="mt-lg-4 mt-2 font-weight-bold font_rifficfree">
+                    <h1 className="mt-lg-4 mt-2 font_rifficfree">
                       Connect wallet to get presale!
                     </h1>
                   </div>
@@ -83,7 +83,7 @@ const MainSection = (props) => {
                   </div>
                   <div className="text-center pt-4">
                     <Button
-                      className="btn_light py-3 px-md-5 px-3 contribution-btn"
+                      className="btn_light py-3 px-md-5 px-3 contribution-btn font_rifficfree"
                       onClick={() => setBtnState(!btnState)}
                     >
                       Contribution
@@ -99,7 +99,7 @@ const MainSection = (props) => {
                   </div>
                   <div className="text-center">
                     <Button
-                      className="btn_light py-3 px-5"
+                      className="btn_light py-3 px-5 font_rifficfree"
                       onClick={() => setBtnState(!btnState)}
                     >
                       Claim
