@@ -13,6 +13,35 @@ body {
   @media only screen and (max-width: 960px) {
     height: 80px;
   }
+  @media only screen and (max-width: 576px) {
+    height: 55px;
+  }
+}
+
+.pre_logo {
+  height: 60px;
+  @media only screen and (max-width: 960px) {
+    height: 60px;
+  }
+  @media only screen and (max-width: 576px) {
+    height: 50px;
+  }
+}
+
+.custom_input {
+  color: white !important;
+  font-size: 2rem !important;
+  font-weight: bold;
+  border: none;
+  text-align: right;
+  border-radius: 10px;
+}
+
+.form-control {
+  background-color: #00547f !important;
+  @media only screen and (max-width: 960px) {
+    background-color:  #3a8eb8 !important;
+  }
 }
 
 .connectWalletBtn {
@@ -53,10 +82,10 @@ body {
 }
 
 .input_sec {
-  background-color: rgba($color: #00547f, $alpha: 0.7);
+  background-color: #00547f;
   border-radius: 10px;
   @media only screen and (max-width: 960px) {
-    background: rgba($color: #3a8eb8, $alpha: 0.8);
+    background-color: #3a8eb8;
   }
 }
 
@@ -96,8 +125,11 @@ body {
 
 .count_text {
   font-weight: normal;
-  // font-size: 5rem;
-  font-family: "Bebas Neue", cursive;
+  font-size: 5.5rem;
+  font-family: "Bebas Neue", sans-serif;
+  @media only screen and (max-width: 576px) {
+    font-size: 3.25rem;    
+  }
 }
 
 .notch_btn {
@@ -143,4 +175,92 @@ body {
 
 .contribution-btn:hover, .wallet-btn, .wallet-btn:hover, .conect_btn, .conect_btn:hover{
   background: rgba(0, 84, 127, 0.7);
+}
+
+.pre_font {
+  position: relative;
+  
+  h1 {
+    font-size: 4rem;
+    margin: 0;
+  }
+  .upper_txt {
+    position: absolute;
+    color: #00547F;
+    top: -4px;
+    font-family: 'Rifficfree-Bold', sans-serif;
+  }
+
+  .lower_txt {
+    color: #509D3F;
+    font-weight: bold;
+  }
+  @media only screen and (max-width: 576px) {
+    h1 {
+      font-size: 2.5rem;
+    }
+    
+  }
+}
+
+.stg_font {
+  position: relative;
+  letter-spacing: 3px;
+  
+  .upper_txt {
+    position: absolute;
+    color: white;
+    top: -3px;
+    font-family: 'Rifficfree-Bold', sans-serif;
+  }
+
+  .lower_txt {
+    color: #0071AB;
+    font-weight: bold;
+  }
+  @media only screen and (max-width: 576px) {
+    h1 {
+      font-size: 1.75rem;
+    }
+  }
+}
+
+.end_font {
+  position: relative;
+  letter-spacing: 3px;
+  h2 {
+    font-size: 1.5rem;
+  }
+  .upper_txt {
+    position: absolute;
+    color: white;
+    top: -3px;
+    font-family: 'Rifficfree-Bold', sans-serif;
+  }
+
+  .lower_txt {
+    color: #509D3F;
+    font-weight: bold;
+    width: fit-content
+  }
+  @media only screen and (max-width: 576px) {
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.cnt_sec {
+  .pig_img {
+    height: 180px;
+  }
+  @media only screen and (max-width: 576px) {
+    .pig_img {
+      height: 180px;
+    }
+    h1 {
+      font-size: 1.9rem;
+    }
+  }
+  
 }

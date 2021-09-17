@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Col, Button, Modal } from "react-bootstrap";
+import { Row, Col, Button, Modal } from "react-bootstrap";
 import ConnectWallet from "../assets/connect wallet.png";
 import Logo from "../assets/Logo.png";
 import PreSale from "../assets/Presale.png";
@@ -29,29 +29,38 @@ const Header = (props) => {
 
   return (
     <>
-      <Col md={12} className="p-4 p-lg-5 d-flex justify-content-between">
+      <Col md={12} className="p-3 p-md-4 p-lg-5 d-flex justify-content-between align-items-center">
         <div>
-          <img src={Logo} className="px-2 header_logo" alt="Logo" />
+          <img src={Logo} className="mr-2 header_logo" alt="Logo" />
         </div>
 
-        <div className="d-none d-lg-flex flex-column text-center justify-content-center pt-5">
-          <div>
-            <img
-              src={PreSale}
-              className="mb-2"
-              style={{ height: "50px" }}
-              alt="presale"
-            />
-          </div>
-          <div>
-            <img src={EndsIn} style={{ height: "25px" }} alt="endsin" />
-          </div>
+
+        <div className="d-lg-block d-none">
+          <Row className="justify-content-center">
+            <Col>
+              <div className="pre_font d-flex justify-content-center">
+              <h1 className="upper_txt">PRESALE</h1>
+            <h1 className="lower_txt">PRESALE</h1>
+              </div>
+            </Col>
+          </Row>
+
+
+          <Row className="justify-content-center">
+            <Col sm="12">
+              <div className="stg_font d-flex justify-content-center">
+              <h1 className="upper_txt mb-0">STAGE 1</h1>
+            <h1 className="lower_txt mb-0">STAGE 1</h1>
+              </div>
+            </Col>
+          </Row>
         </div>
+        
         <div>
           {props.btnState === false ? (
             <div className="align-self-center">
               <Button
-                className="connectWalletBtn py-3 px-3"
+                className="connectWalletBtn p-md-3 py-1"
                 onClick={handleShow}
               >
                 <img
@@ -105,19 +114,26 @@ const Header = (props) => {
         </div>
       </Col>
 
-      <Col md={12} className="d-block d-lg-none">
-        <div className="d-flex flex-column text-center justify-content-center mb-3">
-          <div>
-            <img
-              src={PreSale}
-              className="mb-2"
-              style={{ height: "50px" }}
-              alt="presale"
-            />
-          </div>
-          <div>
-            <img src={EndsIn} style={{ height: "25px" }} alt="endsin" />
-          </div>
+      <Col md={12} className="">
+        <div className="d-block d-lg-none">
+          <Row className="justify-content-center">
+            <Col>
+              <div className="pre_font d-flex justify-content-center">
+              <h1 className="upper_txt">PRESALE</h1>
+            <h1 className="lower_txt">PRESALE</h1>
+              </div>
+            </Col>
+          </Row>
+
+
+          <Row className="justify-content-center">
+            <Col sm="12">
+              <div className="stg_font d-flex justify-content-center">
+              <h1 className="upper_txt mb-0">STAGE 1</h1>
+            <h1 className="lower_txt mb-0">STAGE 1</h1>
+              </div>
+            </Col>
+          </Row>
         </div>
       </Col>
       <Modal show={show} onHide={handleClose} centered className="bg_blur">
