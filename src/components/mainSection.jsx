@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Row, Col, Button } from "react-bootstrap";
+import { Row, Col, Button, Form } from "react-bootstrap";
 import BNB from "../assets/bnb.svg";
 import Pig from "../assets/pig.svg";
 import TimeCounter from "./timeCounter";
@@ -8,10 +8,22 @@ const MainSection = (props) => {
   const [btnState, setBtnState] = useState(true);
   const [value, setValue] = useState("15.6");
 
+  const handleChange = (e) => {
+    setValue(e.target.value);
+  }
+  
   return (
     <Row className="px-lg-5 mx-0 main_sec pb-5 justify-content-center">
       <Col lg={12} className="px-xl-5 mb-3" style={{ maxWidth: "1200px" }}>
-        <div className="glass_bg p-5">
+        <div className="glass_bg px-5 py-4">
+          <Row className="justify-content-center">
+            <Col>
+              <div className="end_font d-flex justify-content-center">
+                <h2 className="upper_txt mb-0">ENDS IN</h2>
+                <h2 className="lower_txt m-0">ENDS IN</h2>
+              </div>
+            </Col>
+          </Row>
           <TimeCounter
             timeTillDate="12 15 2021, 6:00 am"
             timeFormat="MM DD YYYY, h:mm a"
@@ -22,21 +34,21 @@ const MainSection = (props) => {
       <Col lg={12} className="px-xl-5 mb-3" style={{ maxWidth: "1200px" }}>
         <Row>
           <Col md={6} className="px-4 text-white text-center mt-3">
+          
             <div className="glass_bg_res p-lg-4 p-3 h-100">
               <div className="p-lg-4 p-3">
                 <div className="mt-1 progress_bar">
                   <div className="bar" style={{ width: "82%" }}></div>
                 </div>
-                <h5 className="font-weight-bold my-3">Contribution: 82%</h5>
+                <h4 className="font-weight-bold mt-3 py-3">Contribution: 82%</h4>
               </div>
-              <div className="mt-4 pt-4">
-                <h3 className="font-weight-bold my-2">0 BMB / 10K</h3>
+              <div className="pt-md-4">
+                <h3 className="font-weight-bold my-2">0 BNB/10K</h3>
                 <span className="font_avertastd_regular">Current Price:</span>
-                <h3 className="mt-0 font-weight-bold">1 BMB = 1iFans</h3>
+                <h3 className="mt-0 font-weight-bold">1 BNB = 1$iFans</h3>
               </div>
             </div>
           </Col>
-
           <Col md={6} className="px-4 text-white mt-3 position-relative">
             <div className="glass_bg_res position-relative">
               <div
@@ -44,11 +56,12 @@ const MainSection = (props) => {
                   props.btnState && "d-none"
                 } position-absolute`}
               >
-                <div className="text-center">
-                  <img src={Pig} alt="" height="180px" />
-
+                <div className="d-flex flex-column align-items-center justify-content-center cnt_sec">
+                  <div className="my-2">
+                    <img src={Pig} alt="" className="pig_img" />
+                  </div>
                   <div className="text-center px-lg-5">
-                    <h1 className="mt-lg-4 mt-2 font_rifficfree">
+                    <h1 className="mt-lg-4 mt-2 font_rifficfree" style={{letterSpacing:'2px'}}>
                       Connect wallet to get presale!
                     </h1>
                   </div>
@@ -68,10 +81,11 @@ const MainSection = (props) => {
                     </div>
                   </div>
                   <div className="input_sec my-3 text-right">
-                    <h2 className="font-weight-bold px-3 py-2 mb-0">{value}</h2>
+                    {/* <h2 className="font-weight-bold px-3 py-2 mb-0">{value}</h2> */}
+                    <Form.Control type="text" placeholder="Enter Amount" className="custom_input" onChange={handleChange} value={value} />
                   </div>
-                  <div className="px-3 d-flex justify-content-end">
-                    <h5
+                  <div className=" d-flex justify-content-end">
+                  <h5
                       className="font_avertastd_regular font-weight-normal"
                       onClick={() => {
                         setValue("20");
