@@ -1,29 +1,26 @@
-import React, { useState } from "react";
-import { Row, Col, Button, Modal } from "react-bootstrap";
+import { useState, useContext, useCallback } from "react";
+import { Row, Col, Button } from "react-bootstrap";
+import { ellipseAddress } from "utils/blockchain";
 import ConnectWallet from "../assets/connect wallet.png";
 import Logo from "../assets/Logo.png";
-import Metamask from "../assets/metamask.svg";
-import WalletConnect from "../assets/walletConnect.svg";
+// import Metamask from "../assets/metamask.svg";
+// import WalletConnect from "../assets/walletConnect.svg";
 import Wallet from "../assets/wallet.svg";
+import { Web3ModalContext } from '../contexts/Web3ModalProvider';
 
-const Header = (props) => {
+const Header = () => {
   const [btnState, setBtnState] = useState(false);
 
-  const [show, setShow] = useState(false);
+  const { connect, disconnect, account } = useContext(Web3ModalContext);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleConnectWallet = useCallback(() => {
+    connect();
+  }, [connect]);
 
-  const connectWallet = () => {
-    props.setBtnState(true);
-    setShow(false);
+  const handleDisconnectWallet = useCallback(() => {
     setBtnState(false);
-  };
-
-  const disconnectWallet = () => {
-    props.setBtnState(false);
-    setBtnState(false);
-  };
+    disconnect();
+  }, [disconnect]);
 
   return (
     <>
@@ -55,11 +52,11 @@ const Header = (props) => {
         </div>
         
         <div>
-          {props.btnState === false ? (
+          {!account ? (
             <div className="align-self-center">
               <Button
                 className="connectWalletBtn p-md-3 py-1"
-                onClick={handleShow}
+                onClick={handleConnectWallet}
               >
                 <img
                   src={ConnectWallet}
@@ -82,32 +79,24 @@ const Header = (props) => {
                 }}
               >
                 <img src={Wallet} alt="" height="35px" className="mr-2" />
-                0x12345623456
+                { ellipseAddress(account) }
               </Button>
             </div>
           )}
           {btnState &&
-            (props.btnState === false ? (
-              <Button
-                className="conect_btn w-100 py-3 font-weight-bold"
-                onClick={handleShow}
-              >
-                Connect
-              </Button>
-             ) : ( 
-              <Button
-                className="conect_btn w-100 py-3 font-weight-bold"
-                onClick={disconnectWallet}
-                onMouseOver={() => {
-                  setBtnState(true);
-                }}
-                onMouseLeave={() => {
-                  setBtnState(false);
-                }}
-              >
-                Disconnect
-              </Button>
-            ))}
+            <Button
+              className="conect_btn w-100 py-3 font-weight-bold"
+              onClick={handleDisconnectWallet}
+              onMouseOver={() => {
+                setBtnState(true);
+              }}
+              onMouseLeave={() => {
+                setBtnState(false);
+              }}
+            >
+              Disconnect
+            </Button>
+          }
         </div>
       </Col>
 
@@ -133,21 +122,21 @@ const Header = (props) => {
           </Row>
         </div>
       </Col>
-      <Modal show={show} onHide={handleClose} centered className="bg_blur">
+      {/* <Modal show={show} onHide={handleClose} centered className="bg_blur">
         <Modal.Body className="border_radius modal_bg text-center p-4 p-md-5">
           <h3 className="mb-0 font-weight-bold text-white mb-3 pb-3">
             Select Wallet
           </h3>
           <div className="px-4">
-            <Button variant="link" className="p-0 mb-3" onClick={connectWallet}>
+            <Button variant="link" className="p-0 mb-3" onClick={handleConnectWallet}>
               <img src={Metamask} alt="" className="w-100" />
             </Button>
-            <Button variant="link" className="p-0 mb-1" onClick={connectWallet}>
+            <Button variant="link" className="p-0 mb-1" onClick={handleConnectWallet}>
               <img src={WalletConnect} alt="" className="w-100" />
             </Button>
           </div>
         </Modal.Body>
-      </Modal>
+      </Modal> */}
     </>
   );
 };
