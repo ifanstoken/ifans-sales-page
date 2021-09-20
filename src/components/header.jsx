@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { Row, Col, Button, Modal } from "react-bootstrap";
 import ConnectWallet from "../assets/connect wallet.png";
 import Logo from "../assets/Logo.png";
-import PreSale from "../assets/Presale.png";
-import EndsIn from "../assets/EndsIn.png";
 import Metamask from "../assets/metamask.svg";
 import WalletConnect from "../assets/walletConnect.svg";
 import Wallet from "../assets/wallet.svg";
@@ -29,7 +27,7 @@ const Header = (props) => {
 
   return (
     <>
-      <Col md={12} className="p-3 p-md-4 p-lg-5 d-flex justify-content-between align-items-center">
+      <Col md={12} className="p-3 p-md-4 p-lg-5 d-flex justify-content-between">
         <div>
           <img src={Logo} className="mr-2 header_logo" alt="Logo" />
         </div>
@@ -88,7 +86,6 @@ const Header = (props) => {
               </Button>
             </div>
           )}
-
           {btnState &&
             (props.btnState === false ? (
               <Button
@@ -97,7 +94,7 @@ const Header = (props) => {
               >
                 Connect
               </Button>
-            ) : (
+             ) : ( 
               <Button
                 className="conect_btn w-100 py-3 font-weight-bold"
                 onClick={disconnectWallet}
