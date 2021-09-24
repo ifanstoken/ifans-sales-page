@@ -1,11 +1,13 @@
-import React, { useState } from "react";
 import { Container, Row } from "react-bootstrap";
 import Header from "../components/header";
 import Footer from "../components/footer";
+import LoaderSpinner from "react-loader-spinner";
 import MainSection from "../components/mainSection";
+import useSalesData from "hooks/useSalesData";
 
 const Landing = () => {
-  const [btnState, setBtnState] = useState(false);
+
+  const salesData = useSalesData();
 
   return (
     <Container
@@ -14,9 +16,21 @@ const Landing = () => {
       style={{ minHeight: "100vh" }}
     >
       <Row className="px-0 m-0">
-        <Header btnState={btnState} setBtnState={setBtnState} />
+        <Header salesData={salesData} />
       </Row>
-      <MainSection btnState={btnState} />
+      {
+        salesData?
+          <MainSection salesData={salesData} />
+        :
+          <div className="page-loading">
+            <LoaderSpinner
+              type="ThreeDots"
+              color="#0071AB"
+              height={50}
+              width={70}
+            />
+          </div>
+      }
       <Footer />
     </Container>
   );

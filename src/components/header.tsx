@@ -1,14 +1,13 @@
+import { getStageText } from "blockchain/utils";
 import { useState, useContext, useCallback } from "react";
 import { Row, Col, Button } from "react-bootstrap";
 import { ellipseAddress } from "utils/blockchain";
 import ConnectWallet from "../assets/connect wallet.png";
 import Logo from "../assets/Logo.png";
-// import Metamask from "../assets/metamask.svg";
-// import WalletConnect from "../assets/walletConnect.svg";
 import Wallet from "../assets/wallet.svg";
 import { Web3ModalContext } from '../contexts/Web3ModalProvider';
 
-const Header = () => {
+const Header = (props) => {
   const [btnState, setBtnState] = useState(false);
 
   const { connect, disconnect, account } = useContext(Web3ModalContext);
@@ -22,14 +21,14 @@ const Header = () => {
     disconnect();
   }, [disconnect]);
 
+  const stageText = getStageText(props.salesData);
+
   return (
     <>
       <Col md={12} className="p-3 p-md-4 p-lg-5 d-flex justify-content-between">
         <div>
           <img src={Logo} className="mr-2 header_logo" alt="Logo" />
         </div>
-
-
         <div className="d-lg-block d-none">
           <Row className="justify-content-center">
             <Col>
@@ -39,13 +38,11 @@ const Header = () => {
               </div>
             </Col>
           </Row>
-
-
           <Row className="justify-content-center">
             <Col sm="12">
               <div className="stg_font d-flex justify-content-center">
-              <h1 className="upper_txt mb-0">STAGE 1</h1>
-            <h1 className="lower_txt mb-0">STAGE 1</h1>
+              <h1 className="upper_txt mb-0">{stageText}</h1>
+              <h1 className="lower_txt mb-0">{stageText}</h1>
               </div>
             </Col>
           </Row>

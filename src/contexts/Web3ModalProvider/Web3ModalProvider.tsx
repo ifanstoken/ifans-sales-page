@@ -2,6 +2,8 @@ import { createContext, useCallback, useEffect, useState } from 'react';
 import Web3Modal from "web3modal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import Web3 from 'web3';
+import { createWeb3 } from 'blockchain/utils';
+import { rpcUrls } from 'blockchain/constants';
 
 interface IWeb3ModalContext {
   web3: Web3 | null;
@@ -39,8 +41,8 @@ const Web3ModalProvider = ({ children }) => {
         package: WalletConnectProvider,
         options: {
           rpc: {
-            56: 'https://bsc-dataseed.binance.org/',
-            97: 'https://data-seed-prebsc-1-s1.binance.org:8545/'
+            56: rpcUrls[56],
+            97: rpcUrls[97]
           },
           network: 'binance',
         }
@@ -102,7 +104,7 @@ const Web3ModalProvider = ({ children }) => {
     if (_provider === null) 
       return;
     
-    const _web3 = new Web3(_provider);
+    const _web3 = createWeb3(_provider);
     setWeb3(_web3);
 
     await subscribeProvider(_provider, _web3);

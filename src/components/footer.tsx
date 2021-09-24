@@ -1,6 +1,5 @@
-import React from "react";
 import { Row, Col } from "react-bootstrap";
-import Logo from "../assets/logo-footer.svg";
+import Logo from "../assets/logo-icon.svg";
 import Web from "../assets/web.svg";
 import Twitter from "../assets/twitter.svg";
 import Telegram from "../assets/telegram.svg";

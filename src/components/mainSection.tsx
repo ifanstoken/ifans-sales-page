@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+
+import { getTargetTime, getPercent, toFixed } from "blockchain/utils";
+import { useState } from "react";
 import { Row, Col, Button, Form } from "react-bootstrap";
 import BNB from "../assets/bnb.svg";
 import Pig from "../assets/pig.svg";
@@ -7,6 +9,12 @@ import TimeCounter from "./timeCounter";
 const MainSection = (props) => {
   const [btnState, setBtnState] = useState(true);
   const [value, setValue] = useState("15.6");
+
+  const { salesData } = props;
+
+  const { targetTime, timerTitle } = getTargetTime(salesData);
+  const percent = getPercent(salesData);
+  const percentFormatted = 5 + (percent / 100 * 95);
 
   const handleChange = (e) => {
     setValue(e.target.value);
@@ -19,15 +27,12 @@ const MainSection = (props) => {
           <Row className="justify-content-center">
             <Col>
               <div className="end_font d-flex justify-content-center">
-                <h2 className="upper_txt mb-0">ENDS IN</h2>
-                <h2 className="lower_txt m-0">ENDS IN</h2>
+                <h2 className="upper_txt mb-0">{timerTitle}</h2>
+                <h2 className="lower_txt m-0">{timerTitle}</h2>
               </div>
             </Col>
           </Row>
-          <TimeCounter
-            timeTillDate="12 15 2021, 6:00 am"
-            timeFormat="MM DD YYYY, h:mm a"
-          />
+          <TimeCounter timeTillDate={targetTime} />
         </div>
       </Col>
 
@@ -38,14 +43,14 @@ const MainSection = (props) => {
             <div className="glass_bg_res p-lg-4 p-3 h-100">
               <div className="p-lg-4 p-3">
                 <div className="mt-1 progress_bar">
-                  <div className="bar" style={{ width: "82%" }}></div>
+                  <div className="bar" style={{ width: `${percentFormatted}%` }}></div>
                 </div>
-                <h4 className="font-weight-bold mt-3 py-3">Contribution: 82%</h4>
+                <h4 className="font-weight-bold mt-3 py-3">Contribution: {percent}%</h4>
               </div>
               <div className="pt-md-4">
-                <h3 className="font-weight-bold my-2">0 BNB/10K</h3>
+                <h3 className="font-weight-bold my-2">{toFixed(salesData.amountRaised, 2)} BNB / {toFixed(salesData.totalAmount, 2)}</h3>
                 <span className="font_avertastd_regular">Current Price:</span>
-                <h3 className="mt-0 font-weight-bold">1 BNB = 1$iFans</h3>
+                <h3 className="mt-0 font-weight-bold">1 BNB = {toFixed(salesData.tokenPrice, 2)} $iFans</h3>
               </div>
             </div>
           </Col>
