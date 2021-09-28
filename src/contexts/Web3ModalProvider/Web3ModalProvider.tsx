@@ -97,7 +97,7 @@ const Web3ModalProvider = ({ children }) => {
   }, [resetWeb3])
 
   const connect = useCallback(async () => {
-    if (web3Modal === null)
+    if (!web3Modal)
       return;
 
     const _provider = await web3Modal.connect();

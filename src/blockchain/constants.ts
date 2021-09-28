@@ -10,7 +10,7 @@ export const rpcUrls = {
 
 export const addresses = {
   crowdsale: {
-    97: '0xE9e0F07072a60e6f7fCceB2C2d87d146Fc441fA7'
+    97: '0x5ACa183d5aD4b7910AF629F49a25a155055e8cbD'
   },
 }
 
@@ -19,14 +19,14 @@ export const tokenInfos = {
   bnb: {
     name: "Binance Coin",
     symbol: "BNB",
-    decimals: 8
+    decimals: 18
   },
 
   iFans: {
-    name: 'iFans',
-    symbol: '$iFans',
+    name: 'iFANS',
+    symbol: '$iFANS',
     address: {
-      97: '0x98378DEA486ca01C53091fC6F7FE7bf63763a526',
+      97: '0x26bCe9ae8953A4665dfA48BCfF696f27237354b4',
     },
     decimals: 18,
     logo: ifansLogo

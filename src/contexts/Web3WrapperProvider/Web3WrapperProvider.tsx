@@ -16,7 +16,7 @@ const Web3WrapperProvider = ({ children }) => {
   const [web3Wrapper, setWeb3Wrapper] = useState<Web3Wrapper | null>(null);
 
   useEffect(() => {
-    if (web3) {
+    if (web3 && chainId && account) {
       try {
         const _web3Wrapper = new Web3Wrapper(web3, chainId, account);
         setWeb3Wrapper(_web3Wrapper);
@@ -25,7 +25,10 @@ const Web3WrapperProvider = ({ children }) => {
         console.log("Failed to create a Web3 Wrapper: ", e);
       }
     }
-  }, [web3]);
+    else {
+      setWeb3Wrapper(null);
+    }
+  }, [web3, chainId, account]);
 
   return (
     <Web3WrapperContext.Provider 

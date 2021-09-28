@@ -25,7 +25,7 @@ const Header = (props) => {
 
   return (
     <>
-      <Col md={12} className="p-3 p-md-4 p-lg-5 d-flex justify-content-between">
+      <Col md={12} className="p-3 p-md-4 px-lg-5 py-lg-header d-flex justify-content-between">
         <div>
           <img src={Logo} className="mr-2 header_logo" alt="Logo" />
         </div>

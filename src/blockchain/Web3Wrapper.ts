@@ -2,6 +2,7 @@ import Web3 from 'web3';
 import { addresses, tokenInfos } from './constants';
 import Crowdsale from './contracts/CrowdSale';
 import ERC20 from './contracts/ERC20';
+import { BNtoNum, NumToBN } from './utils';
 
 export default class Web3Wrapper {
 
@@ -29,8 +30,38 @@ export default class Web3Wrapper {
     this.crowdsale = new Crowdsale(this.wrapperOptions, addresses.crowdsale[this.chainId]);
   }
 
-  getCurrentStage() {
-    
+  async getAccountData() {
+    console.log(this.account);
+    const ifansBalance = await this.crowdsale.call("balanceOf", this.account);
+    const bnbBalacne = await this.web3.eth.getBalance(this.account);
+    const avail : any = await this.crowdsale.call("getAvailableToken", this.account);
+    const claimed : any = await this.crowdsale.call("tokensClaimed", this.account);
+    return {
+      ifansBalance: BNtoNum(ifansBalance, tokenInfos.iFans.decimals),
+      bnbBalance: BNtoNum(bnbBalacne, tokenInfos.bnb.decimals),
+      nextMilestone: Number(avail.nextMilestone),
+      tokensAvailable: BNtoNum(avail.tokensAvailable, tokenInfos.iFans.decimals),
+      claimed: BNtoNum(claimed, tokenInfos.iFans.decimals)
+    }
   }
 
+  async buy(bnbValue) {
+    try {
+      const tx = await this.crowdsale.send("invest", {value: NumToBN(bnbValue, tokenInfos.bnb.decimals)});
+      return tx;
+    } catch (e) {
+      console.log(e);
+      return false;
+    }
+  }
+
+  async claim() {
+    try {
+      const tx = await this.crowdsale.send("claim", null);
+      return tx;
+    } catch (e) {
+      console.log(e);
+      return false;
+    }
+  }
 }

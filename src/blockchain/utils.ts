@@ -46,30 +46,41 @@ export const NumToBN = (value, decimal = 18) => {
 }
 
 export const toFixed = (num, digit) => {
+  if (isNaN(num)) return 0;
   var fixed_num = Number(num).toFixed(digit)
   return Number(fixed_num.toString());
 }
 
+export const getDateStr = (dateObj) => {
+  const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const month = monthNames[dateObj.getMonth()];
+  const day = String(dateObj.getDate()).padStart(2, '0');
+  const year = dateObj.getFullYear();
+  const output = month  + ' ' + day  + ', ' + year;
+  return output;
+}
+
 export const getStageText = (salesData) => {
   if (!salesData || salesData.isEnded)
-    return "";
+    return "Ended";
 
   return `STAGE ${salesData.curStageIndex + 1}`;
 }
 
 export const getTargetTime = (salesData) => {
   if (salesData.isEnded)
-    return { targetTime: null, timerTitle: "" };
+    return { targetTime: null, timerTitle: "Claim your $iFANS !" };
 
   if (salesData.isLive)
     return { 
       targetTime: salesData.closeTime,
-      timerTitle: "ENDS IN"
+      timerTitle: "LIVE NOW"
     }
 
   return { 
     targetTime: salesData.openTime,
-    timerTitle: "STARTS IN"
+    timerTitle: "COMING SOON"
   }
 }
 
@@ -77,7 +88,7 @@ export const getPercent = (salesData) => {
   if (salesData.isEnded) 
     return 0;
 
-  return toFixed(salesData.amountRaised / salesData.totalAmount * 100, 1);
+  return toFixed(salesData.amountRaised / salesData.fundingGoal * 100, 1);
 }
 
 export const parseStageData = (_stage) => {
@@ -86,7 +97,7 @@ export const parseStageData = (_stage) => {
     openTime: Number(_stage.openTime),
     closeTime: Number(_stage.closeTime),
     tokenPrice: Number(_stage.tokenPrice),
-    totalAmount: BNtoNum(_stage.totalAmount, tokenInfos.bnb.decimals)
+    fundingGoal: BNtoNum(_stage.fundingGoal, tokenInfos.bnb.decimals)
   }
 
   return stage;
@@ -110,11 +121,9 @@ export const getCrowdsaleData = async () => {
     curStage = parseStageData(curStage);
   }
 
-  console.log("Current Stage:", curStage);
-
   return {
-    minInvestFund,
-    maxInvestFund,
+    minInvestFund: BNtoNum(minInvestFund, tokenInfos.bnb.decimals),
+    maxInvestFund: BNtoNum(maxInvestFund, tokenInfos.bnb.decimals),
     curStageIndex,
     isLive,
     isEnded: curStageIndex >= stageCnt,
