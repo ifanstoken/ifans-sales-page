@@ -34,9 +34,9 @@ const ActionBox = (props) => {
   }
 
   const handleMaxClick = useCallback(() => {
-    if (buyEnabled)
-      setBnbAmount(accountData?.bnbBalance)
-  }, [buyEnabled])
+    if (buyEnabled && accountData)
+      setBnbAmount(accountData.bnbBalance)
+  }, [buyEnabled, accountData])
 
   const calcNextUnlock = useCallback(() => {
     if (!accountData || Number(accountData.nextMilestone) === 0) 
@@ -47,7 +47,7 @@ const ActionBox = (props) => {
   const calcTokenAmount = useCallback(() => {
     if (isNaN(Number(bnbAmount))) return 0;
     return salesData.tokenPrice * Number(bnbAmount);
-  }, [bnbAmount])
+  }, [bnbAmount, salesData])
 
   const getClaimText = useCallback(() => {
     if (!accountData || !accountData.tokensAvailable) return "";
@@ -55,6 +55,7 @@ const ActionBox = (props) => {
   }, [accountData])
 
   const handleBuy = useCallback(async () => {
+    if (!accountData || !salesData) return;
     if (bnbAmount === "" || isNaN(Number(bnbAmount)) || Number(bnbAmount) <= 0) {
       NotificationManager.error("Invalid BNB amount.");
       return;
@@ -82,15 +83,16 @@ const ActionBox = (props) => {
     NotificationManager.success(`${calcTokenAmount()} ${tokenInfos.iFans.symbol} purchased`, 'Purchase Success');
     setBnbAmount("0");
 
-  }, [bnbAmount])
+  }, [bnbAmount, wrapper, accountData, salesData, calcTokenAmount])
 
   const handleClaim = useCallback(async () => {
+    if (!wrapper) return;
     if (isNaN(Number(accountData?.tokensAvailable)) || Number(accountData?.tokensAvailable) <= 0) {
       NotificationManager.error("If you still have remaining tokens to claim, please wait until the next unlock.", "Nothing to claim!");
       return;
     }
     setClaimReqeusted(true);
-    const txHash = await wrapper?.claim();
+    const txHash = await wrapper.claim();
     setClaimReqeusted(false);
     if (!txHash) {
       NotificationManager.error('Claim Transaction Error');
@@ -99,7 +101,7 @@ const ActionBox = (props) => {
     
     NotificationManager.success(`${accountData.tokensAvailable} ${tokenInfos.iFans.symbol} claimed`, 'Claim Success');
 
-  }, [accountData])
+  }, [accountData, wrapper])
 
   return (
     <>

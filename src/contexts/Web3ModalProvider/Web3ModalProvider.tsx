@@ -58,12 +58,6 @@ const Web3ModalProvider = ({ children }) => {
     setWeb3Modal(_web3Modal);
   }, [])
 
-  useEffect(() => {
-    if (web3Modal && web3Modal.cachedProvider) {
-      connect();
-    }
-  }, [web3Modal])
-
   const resetWeb3 = useCallback(() => {
     setWeb3(null);
     setAccount(null);
@@ -119,7 +113,13 @@ const Web3ModalProvider = ({ children }) => {
     setChainId(_chainId);
     setConnected(true);
     
-  }, [web3Modal]);
+  }, [web3Modal, subscribeProvider]);
+
+  useEffect(() => {
+    if (web3Modal && web3Modal.cachedProvider) {
+      connect();
+    }
+  }, [web3Modal, connect])
 
   const disconnect = useCallback(async () => {
     if (web3 && web3.currentProvider) {
@@ -131,7 +131,7 @@ const Web3ModalProvider = ({ children }) => {
       await web3Modal.clearCachedProvider();
     }
     resetWeb3();
-  }, [web3Modal, web3])
+  }, [web3Modal, web3, resetWeb3])
 
   return (
     <Web3ModalContext.Provider 
