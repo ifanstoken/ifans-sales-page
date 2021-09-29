@@ -254,6 +254,34 @@
     "type": "function"
   },
   {
+    "inputs": [],
+    "name": "unlockInterval",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [],
+    "name": "unlockPercentage",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
     "stateMutability": "payable",
     "type": "receive",
     "payable": true
@@ -391,6 +419,24 @@
       }
     ],
     "name": "setInvestRange",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_interval",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_percentage",
+        "type": "uint256"
+      }
+    ],
+    "name": "setUnlockStrategy",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
