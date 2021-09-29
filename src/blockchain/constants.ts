@@ -10,7 +10,7 @@ export const rpcUrls = {
 
 export const addresses = {
   crowdsale: {
-    97: '0x5ACa183d5aD4b7910AF629F49a25a155055e8cbD'
+    97: '0xce7a5ed0D72FC99E336108AE65B6Ea6b7e6bec6e'
   },
 }
 
@@ -26,7 +26,7 @@ export const tokenInfos = {
     name: 'iFANS',
     symbol: '$iFANS',
     address: {
-      97: '0x26bCe9ae8953A4665dfA48BCfF696f27237354b4',
+      97: '0x7FB523a153489b0a46bDc6CcDc00bD3DA8BCAF01',
     },
     decimals: 18,
     logo: ifansLogo
