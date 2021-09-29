@@ -169,7 +169,7 @@ const ActionBox = (props) => {
                   onClick={handleBuy}
                   disabled={!buyEnabled}
                 >
-                  {buyRequested?"Purchasing...":"Purchase"} 
+                  {salesData.isLive?(buyRequested?"Purchasing...":"Purchase"):"Not live"} 
                 </Button>
               </div>
             </div>
