@@ -80,7 +80,7 @@ export const getTargetTime = (salesData) => {
 
   return { 
     targetTime: salesData.openTime,
-    timerTitle: "COMING SOON"
+    timerTitle: "LIVE IN"
   }
 }
 

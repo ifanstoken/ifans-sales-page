@@ -1,6 +1,12 @@
 body {
   font-family: 'Avertastd-Regular', sans-serif;
 }
+
+.main_sec {
+  zoom: 67%;
+  MozTransform: scale(0.67);
+}
+
 .mainBG {
     background-image: url(../assets/bg/bg1.jpg);
     background-size: cover;
@@ -180,9 +186,9 @@ body {
     margin: 0;
   }
   .upper_txt {
-    position: absolute;
+    //position: absolute;
     color: #00547F;
-    top: -4px;
+    //top: -4px;
     font-family: 'Rifficfree-Bold', sans-serif;
   }
 
@@ -203,9 +209,9 @@ body {
   letter-spacing: 3px;
     
   .upper_txt {
-    position: absolute;
+    // position: absolute;
     color: white;
-    top: -3px;
+    // top: -3px;
     font-family: 'Rifficfree-Bold', sans-serif;
   }
 

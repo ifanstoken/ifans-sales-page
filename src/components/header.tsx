@@ -33,16 +33,14 @@ const Header = (props) => {
           <Row className="justify-content-center">
             <Col>
               <div className="pre_font d-flex justify-content-center">
-              <h1 className="upper_txt">PRESALE</h1>
-            <h1 className="lower_txt">PRESALE</h1>
+                <h1 className="upper_txt">PRESALE</h1>
               </div>
             </Col>
           </Row>
           <Row className="justify-content-center">
             <Col sm="12">
               <div className="stg_font d-flex justify-content-center">
-              <h1 className="upper_txt mb-0">{stageText}</h1>
-              <h1 className="lower_txt mb-0">{stageText}</h1>
+                <h1 className="upper_txt mb-0">{stageText}</h1>
               </div>
             </Col>
           </Row>
