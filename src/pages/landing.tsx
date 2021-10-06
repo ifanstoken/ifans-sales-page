@@ -1,13 +1,24 @@
+import { useContext, useEffect } from "react";
 import { Container, Row } from "react-bootstrap";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import LoaderSpinner from "react-loader-spinner";
 import MainSection from "../components/mainSection";
 import useSalesData from "hooks/useSalesData";
+import { Web3ModalContext } from "contexts/Web3ModalProvider";
+import { defaultChainId } from "blockchain/constants";
+import { NotificationManager } from 'react-notifications';
 
 const Landing = () => {
 
   const salesData = useSalesData();
+  const { chainId } = useContext(Web3ModalContext);
+
+  useEffect(() => {
+    if (chainId !== null && Number(chainId) !== Number(defaultChainId)) {
+      NotificationManager.error("Try on BSC Testnet", "Wrong Network");
+    }
+  }, [chainId])
 
   return (
     <Container

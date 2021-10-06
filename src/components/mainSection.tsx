@@ -13,7 +13,7 @@ const MainSection = (props) => {
   const percentFormatted = 5 + (percent / 100 * 95);
   
   return (
-    <Row className="px-lg-5 mx-0 main_sec pb-5 justify-content-center">
+    <Row className="px-lg-5 mx-0 main_sec pb-5 flex-column align-items-center">
       <Col lg={12} className="px-xl-5 mb-3" style={{ maxWidth: "1200px" }}>
         <div className="glass_bg px-5 py-4">
           <Row className="justify-content-center">
@@ -27,11 +27,9 @@ const MainSection = (props) => {
           <TimeCounter timeTillDate={targetTime} />
         </div>
       </Col>
-
       <Col lg={12} className="px-xl-5 mb-3" style={{ maxWidth: "1200px" }}>
         <Row>
           <Col md={6} className="px-4 text-white text-center mt-3">
-          
             <div className="glass_bg_res p-lg-4 p-3 h-100">
               <div className="p-lg-4 p-3">
                 <div className="mt-1 progress_bar">

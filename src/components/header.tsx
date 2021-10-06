@@ -101,7 +101,6 @@ const Header = (props) => {
             <Col>
               <div className="pre_font d-flex justify-content-center">
               <h1 className="upper_txt">PRESALE</h1>
-            <h1 className="lower_txt">PRESALE</h1>
               </div>
             </Col>
           </Row>
@@ -111,7 +110,6 @@ const Header = (props) => {
             <Col sm="12">
               <div className="stg_font d-flex justify-content-center">
               <h1 className="upper_txt mb-0">STAGE 1</h1>
-            <h1 className="lower_txt mb-0">STAGE 1</h1>
               </div>
             </Col>
           </Row>

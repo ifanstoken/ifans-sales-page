@@ -13,6 +13,7 @@ const useAccountData = () => {
         console.log("Account Data:", data);
       } catch (e) {
         console.log(e);
+        setAccountData(null);
       }
     }
   }, [wrapper]);
