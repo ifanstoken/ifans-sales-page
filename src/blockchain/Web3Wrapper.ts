@@ -31,16 +31,14 @@ export default class Web3Wrapper {
   }
 
   async getAccountData() {
-    console.log(this.account);
     const ifansBalance = await this.crowdsale.call("balanceOf", this.account);
     const bnbBalacne = await this.web3.eth.getBalance(this.account);
-    const avail : any = await this.crowdsale.call("getAvailableToken", this.account);
-    const claimed : any = await this.crowdsale.call("tokensClaimed", this.account);
+    const available = await this.crowdsale.call("getAvailableToken", this.account);
+    const claimed = await this.crowdsale.call("tokensClaimed", this.account);
     return {
       ifansBalance: BNtoNum(ifansBalance, tokenInfos.iFans.decimals),
       bnbBalance: BNtoNum(bnbBalacne, tokenInfos.bnb.decimals),
-      nextMilestone: Number(avail.nextMilestone),
-      tokensAvailable: BNtoNum(avail.tokensAvailable, tokenInfos.iFans.decimals),
+      tokensAvailable: BNtoNum(available, tokenInfos.iFans.decimals),
       claimed: BNtoNum(claimed, tokenInfos.iFans.decimals)
     }
   }

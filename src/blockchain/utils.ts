@@ -62,7 +62,9 @@ export const getDateStr = (dateObj) => {
 }
 
 export const getStageText = (salesData) => {
-  if (!salesData || salesData.isEnded)
+  if (!salesData)
+    return " ";
+  if (salesData.isEnded)
     return "Ended";
 
   return `STAGE ${salesData.curStageIndex + 1}`;

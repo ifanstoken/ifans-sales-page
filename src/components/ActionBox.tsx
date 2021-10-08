@@ -38,20 +38,14 @@ const ActionBox = (props) => {
       setBnbAmount(accountData.bnbBalance)
   }, [buyEnabled, accountData])
 
-  const calcNextUnlock = useCallback(() => {
-    if (!accountData || Number(accountData.nextMilestone) === 0) 
-      return "-";
-    return getDateStr(new Date(accountData.nextMilestone * 1000));
-  }, [accountData])
-
   const calcTokenAmount = useCallback(() => {
     if (isNaN(Number(bnbAmount))) return 0;
     return salesData.tokenPrice * Number(bnbAmount);
   }, [bnbAmount, salesData])
 
   const getClaimText = useCallback(() => {
-    if (!accountData || !accountData.tokensAvailable) return "";
-    return ` ${toFixed(accountData.tokensAvailable, 2)} ${tokenInfos.iFans.symbol}`;
+    if (!accountData || !accountData.tokensAvailable) return "Nothing to Claim";
+    return "Claim";
   }, [accountData])
 
   const handleBuy = useCallback(async () => {
@@ -70,6 +64,11 @@ const ActionBox = (props) => {
     }
     if (Number(bnbAmount) > Number(accountData.bnbBalance)) {
       NotificationManager.error("Insufficient BNB balance.");
+      return;
+    }
+    const left = (Number(salesData.fundingGoal) - Number(salesData.amountRaised));
+    if (Number(bnbAmount) > left) {
+      NotificationManager.error(`Your investment is over cap. ${toFixed(left, 4)} BNB left for this stage.`);
       return;
     }
     setBuyReqeusted(true);
@@ -117,7 +116,7 @@ const ActionBox = (props) => {
             </div>
             <div className="text-center px-lg-5">
               <h1 className="mt-lg-4 mt-2 font_rifficfree" style={{letterSpacing:'2px'}}>
-                Connect wallet to get presale!
+                Connect wallet to access presale!
               </h1>
             </div>
           </div>
@@ -199,9 +198,9 @@ const ActionBox = (props) => {
                       <span className="text-left">Claimed: </span>
                       <span className="font-weight-bold text-right"> {toFixed(accountData?.claimed, 2)} {tokenInfos.iFans.symbol}</span>
                     </div>
-                    <div className="d-flex justify-content-space-between lock-text">
-                      <span className="text-left">Next Unlock: </span>
-                      <span className="font-weight-bold text-right"> {calcNextUnlock()}</span>
+                    <div className="d-flex justify-content-space-between green-text">
+                      <span className="text-left">Available: </span>
+                      <span className="font-weight-bold text-right"> {toFixed(accountData?.tokensAvailable, 2)} {tokenInfos.iFans.symbol}</span>
                     </div>
                     <div className="text-center">
                       <Button
@@ -209,12 +208,12 @@ const ActionBox = (props) => {
                         onClick={handleClaim}
                         disabled={!claimEnabled}
                       >
-                        {claimRequested?"Claiming...":`CLAIM${getClaimText()}`}
+                        {claimRequested?"Claiming...":`${getClaimText()}`}
                       </Button>
                     </div>
                   </>
                 :
-                  <h1>No $iFans you bought!</h1>
+                  <h1 className="no-purchase">No $iFans you purchased</h1>
               }
             </div>
           :

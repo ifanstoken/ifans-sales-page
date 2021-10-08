@@ -105,6 +105,20 @@
   },
   {
     "inputs": [],
+    "name": "duration",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [],
     "name": "maxInvestFund",
     "outputs": [
       {
@@ -186,6 +200,25 @@
         "internalType": "uint256",
         "name": "tokenPrice",
         "type": "uint256"
+      },
+      {
+        "internalType": "bool",
+        "name": "forwarded",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [],
+    "name": "tge",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
       }
     ],
     "stateMutability": "view",
@@ -254,34 +287,6 @@
     "type": "function"
   },
   {
-    "inputs": [],
-    "name": "unlockInterval",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function",
-    "constant": true
-  },
-  {
-    "inputs": [],
-    "name": "unlockPercentage",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function",
-    "constant": true
-  },
-  {
     "stateMutability": "payable",
     "type": "receive",
     "payable": true
@@ -331,12 +336,7 @@
     "outputs": [
       {
         "internalType": "uint256",
-        "name": "tokensAvailable",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "nextMilestone",
+        "name": "",
         "type": "uint256"
       }
     ],
@@ -427,16 +427,16 @@
     "inputs": [
       {
         "internalType": "uint256",
-        "name": "_interval",
+        "name": "_tge",
         "type": "uint256"
       },
       {
         "internalType": "uint256",
-        "name": "_percentage",
+        "name": "_duration",
         "type": "uint256"
       }
     ],
-    "name": "setUnlockStrategy",
+    "name": "setVestingStrategy",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -465,6 +465,29 @@
       }
     ],
     "name": "depositToken",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "stageIndex",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "percent",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "beneficiary",
+        "type": "address"
+      }
+    ],
+    "name": "forwardStageFunds",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

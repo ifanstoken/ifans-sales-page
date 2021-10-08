@@ -6,6 +6,7 @@ import Web3WrapperProvider from "contexts/Web3WrapperProvider";
 import { NotificationContainer } from 'react-notifications';
 
 const App = () => {
+
   return (
     <Providers>
       <Route />

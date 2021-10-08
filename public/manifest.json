@@ -1,10 +1,11 @@
 {
-  "short_name": "iFANS Presale",
-  "name": "$iFANS Token Presale Page",
+  "short_name": "$iFANS Presale",
+  "name": "$iFANS Presale | Crypto's Leading Creator-Focused Launchpad & Community Fund",
+  "description": "Welcome to The iFANS Community! The Official Website For Crypto's Leading Creator-Focused Launchpad & Community Fund",
   "icons": [
     {
-      "src": "logo192.png",
-      "type": "image/png",
+      "src": "favicon.ico",
+      "type": "image/x-icon",
       "sizes": "64x64 32x32 24x24 16x16"
     },
     {

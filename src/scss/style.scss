@@ -313,3 +313,20 @@ body {
   font-weight: bold;
   color: #00547F;
 }
+
+.green-text {
+  color: #b0ff30;
+}
+
+.input_sec {
+  input::placeholder {
+    color: #5786ac;
+    opacity: 1;
+  }
+}
+
+.no-purchase {
+  font-weight: bold;
+  font-size: 2rem;
+  margin-top: 1.5rem;
+}

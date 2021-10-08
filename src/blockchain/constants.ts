@@ -8,9 +8,14 @@ export const rpcUrls = {
   97: 'https://data-seed-prebsc-1-s1.binance.org:8545/'
 }
 
+export const networkNames = {
+  56: 'BSC Mainnet',
+  97: 'BSC Testnet'
+}
+
 export const addresses = {
   crowdsale: {
-    97: '0xc83c92C7927D9Ae8956ADbb3780f491969a226aA'
+    97: '0xc77a7b629586Bfb2b40BB9cd3aAaD9E36816C4d8'
   },
 }
 
@@ -26,7 +31,7 @@ export const tokenInfos = {
     name: 'iFANS',
     symbol: '$iFANS',
     address: {
-      97: '0x78c07F5bE71fF9E35C975E6c928c43966D3DdcBA',
+      97: '0xbC6Be4eADBC119542aaE9402eF33686A8972F25f',
     },
     decimals: 18,
     logo: ifansLogo
