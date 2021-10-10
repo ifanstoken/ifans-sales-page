@@ -1,7 +1,7 @@
 
 import ifansLogo from '../assets/logo-icon.svg';
 
-export const defaultChainId = 56;
+export const defaultChainId = 97;
 
 export const rpcUrls = {
   56: 'https://bsc-dataseed.binance.org/',
