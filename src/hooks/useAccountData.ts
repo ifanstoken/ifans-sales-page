@@ -10,7 +10,8 @@ const useAccountData = () => {
       try {
         const data = await wrapper.getAccountData();
         setAccountData(data);
-        console.log("Account Data:", data);
+        if ((window as any).debugMode)
+          console.log("Account Data:", data);
       } catch (e) {
         console.log(e);
         setAccountData(null);

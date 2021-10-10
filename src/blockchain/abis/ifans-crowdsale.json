@@ -274,19 +274,6 @@
     "constant": true
   },
   {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "newOwner",
-        "type": "address"
-      }
-    ],
-    "name": "transferOwnership",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
     "stateMutability": "payable",
     "type": "receive",
     "payable": true
@@ -442,6 +429,19 @@
     "type": "function"
   },
   {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_ifansToken",
+        "type": "address"
+      }
+    ],
+    "name": "setIFansToken",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
     "inputs": [],
     "name": "invest",
     "outputs": [],
@@ -488,6 +488,19 @@
       }
     ],
     "name": "forwardStageFunds",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "beneficiary",
+        "type": "address"
+      }
+    ],
+    "name": "forwardBNB",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

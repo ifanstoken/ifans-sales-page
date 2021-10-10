@@ -6,7 +6,7 @@ import { Button, Form } from "react-bootstrap";
 import BNB from "../assets/bnb.svg";
 import Pig from "../assets/pig.svg";
 import useAccountData from 'hooks/useAccountData';
-import { toFixed, getDateStr } from 'blockchain/utils';
+import { toFixed } from 'blockchain/utils';
 import LoaderSpinner from "react-loader-spinner";
 import { tokenInfos } from 'blockchain/constants';
 
