@@ -1,8 +1,9 @@
 
 import { getTargetTime, getPercent, toFixed } from "blockchain/utils";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Image } from "react-bootstrap";
 import TimeCounter from "./timeCounter";
 import ActionBox from "./ActionBox";
+import Discount from "assets/discount.png";
 
 const MainSection = (props) => {
 
@@ -15,7 +16,11 @@ const MainSection = (props) => {
   return (
     <Row className="px-lg-5 mx-0 main_sec pb-5 flex-column align-items-center">
       <Col lg={12} className="px-xl-5 mb-3" style={{ maxWidth: "1200px" }}>
-        <div className="glass_bg px-5 py-4">
+        <div className="glass_bg px-5 py-4 relative-position">
+          {
+            salesData.isLive &&
+              <Image className="discount" src={Discount} height={150} />
+          }
           <Row className="justify-content-center">
             <Col>
               <div className="end_font d-flex justify-content-center">

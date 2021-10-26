@@ -115,21 +115,6 @@ const Header = (props) => {
           </Row>
         </div>
       </Col>
-      {/* <Modal show={show} onHide={handleClose} centered className="bg_blur">
-        <Modal.Body className="border_radius modal_bg text-center p-4 p-md-5">
-          <h3 className="mb-0 font-weight-bold text-white mb-3 pb-3">
-            Select Wallet
-          </h3>
-          <div className="px-4">
-            <Button variant="link" className="p-0 mb-3" onClick={handleConnectWallet}>
-              <img src={Metamask} alt="" className="w-100" />
-            </Button>
-            <Button variant="link" className="p-0 mb-1" onClick={handleConnectWallet}>
-              <img src={WalletConnect} alt="" className="w-100" />
-            </Button>
-          </div>
-        </Modal.Body>
-      </Modal> */}
     </>
   );
 };
