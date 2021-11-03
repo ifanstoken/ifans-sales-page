@@ -1,5 +1,4 @@
-import { getStageText } from "blockchain/utils";
-import { useState, useContext, useCallback, useEffect } from "react";
+import { useState, useContext, useCallback } from "react";
 import { Row, Col, Button } from "react-bootstrap";
 import { ellipseAddress } from "utils/blockchain";
 import ConnectWallet from "../assets/connect wallet.png";
