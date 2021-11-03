@@ -1,5 +1,5 @@
 import { getStageText } from "blockchain/utils";
-import { useState, useContext, useCallback } from "react";
+import { useState, useContext, useCallback, useEffect } from "react";
 import { Row, Col, Button } from "react-bootstrap";
 import { ellipseAddress } from "utils/blockchain";
 import ConnectWallet from "../assets/connect wallet.png";
@@ -9,8 +9,14 @@ import { Web3ModalContext } from '../contexts/Web3ModalProvider';
 
 const Header = (props) => {
   const [btnState, setBtnState] = useState(false);
+  const [stageText, setStageText] = useState("");
 
   const { connect, disconnect, account } = useContext(Web3ModalContext);
+
+  useEffect(() => {
+    const _stageText = getStageText(props.salesData);
+    setStageText(_stageText);
+  }, [props.salesData])
 
   const handleConnectWallet = useCallback(() => {
     connect();
@@ -20,8 +26,6 @@ const Header = (props) => {
     setBtnState(false);
     disconnect();
   }, [disconnect]);
-
-  const stageText = getStageText(props.salesData);
 
   return (
     <>
@@ -40,7 +44,7 @@ const Header = (props) => {
           <Row className="justify-content-center">
             <Col sm="12">
               <div className="stg_font d-flex justify-content-center">
-                <h1 className="upper_txt mb-0">{stageText}</h1>
+                <h1 className="upper_txt mb-0">{props.salesData.curStageIndex}</h1>
               </div>
             </Col>
           </Row>
