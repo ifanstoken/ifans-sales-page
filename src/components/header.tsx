@@ -9,14 +9,17 @@ import { Web3ModalContext } from '../contexts/Web3ModalProvider';
 
 const Header = (props) => {
   const [btnState, setBtnState] = useState(false);
-  const [stageText, setStageText] = useState("");
 
   const { connect, disconnect, account } = useContext(Web3ModalContext);
 
-  useEffect(() => {
-    const _stageText = getStageText(props.salesData);
-    setStageText(_stageText);
-  }, [props.salesData])
+  const getStageText = useCallback(() => {
+    if (!props.salesData)
+      return " ";
+    if (props.salesData.isEnded)
+      return "Ended";
+  
+    return `STAGE ${props.salesData.curStageIndex + 1}`;
+  }, [props.salesData]);
 
   const handleConnectWallet = useCallback(() => {
     connect();
@@ -44,7 +47,7 @@ const Header = (props) => {
           <Row className="justify-content-center">
             <Col sm="12">
               <div className="stg_font d-flex justify-content-center">
-                <h1 className="upper_txt mb-0">{props.salesData.curStageIndex}</h1>
+                <h1 className="upper_txt mb-0">{getStageText()}</h1>
               </div>
             </Col>
           </Row>
