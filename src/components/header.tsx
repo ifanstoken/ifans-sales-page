@@ -1,4 +1,4 @@
-import { useState, useContext, useCallback } from "react";
+import { useState, useContext, useCallback, useEffect } from "react";
 import { Row, Col, Button } from "react-bootstrap";
 import { ellipseAddress } from "utils/blockchain";
 import ConnectWallet from "../assets/connect wallet.png";
@@ -8,16 +8,26 @@ import { Web3ModalContext } from '../contexts/Web3ModalProvider';
 
 const Header = (props) => {
   const [btnState, setBtnState] = useState(false);
+  const [stageText, setStageText] = useState("");
 
   const { connect, disconnect, account } = useContext(Web3ModalContext);
 
-  const getStageText = useCallback(() => {
-    if (!props.salesData)
-      return " ";
-    if (props.salesData.isEnded)
-      return "Ended";
+  // const getStageText = useCallback(() => {
+  //   if (!props.salesData)
+  //     return " ";
+  //   if (props.salesData.isEnded)
+  //     return "Ended";
   
-    return `STAGE ${props.salesData.curStageIndex + 1}`;
+  //   return `STAGE ${props.salesData.curStageIndex + 1}`;
+  // }, [props.salesData]);
+
+  useEffect(() => {
+    if (props.salesData) {
+      if (props.salesData.isEnded)
+        setStageText("Ended");
+      
+      setStageText(`STAGE ${props.salesData.curStageIndex + 1}`);
+    }
   }, [props.salesData]);
 
   const handleConnectWallet = useCallback(() => {
@@ -46,7 +56,7 @@ const Header = (props) => {
           <Row className="justify-content-center">
             <Col sm="12">
               <div className="stg_font d-flex justify-content-center">
-                <h1 className="upper_txt mb-0">{getStageText()}</h1>
+                <h1 className="upper_txt mb-0">{stageText}</h1>
               </div>
             </Col>
           </Row>
@@ -115,7 +125,7 @@ const Header = (props) => {
           <Row className="justify-content-center">
             <Col sm="12">
               <div className="stg_font d-flex justify-content-center">
-              <h1 className="upper_txt mb-0">STAGE 1</h1>
+              <h1 className="upper_txt mb-0">{stageText}</h1>
               </div>
             </Col>
           </Row>

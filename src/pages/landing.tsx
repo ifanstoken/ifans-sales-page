@@ -42,14 +42,12 @@ const Landing = () => {
             </div>
           </div>
       }
+      <Row className="px-0 m-0">
+        <Header salesData={salesData} />
+      </Row>
       {
         salesData?
-          <>
-            <Row className="px-0 m-0">
-              <Header salesData={salesData} />
-            </Row>
-            <MainSection salesData={salesData} />
-          </>
+          <MainSection salesData={salesData} />
         :
           <div className="page-loading">
             <LoaderSpinner
